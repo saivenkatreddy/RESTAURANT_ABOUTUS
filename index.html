@@ -1,75 +1,201 @@
+<!DOCTYPE html>
 <html>
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial;
+      font-size: 17px;
+      padding: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      margin: 0 -16px;
+    }
+
+    .col-25 {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+    }
+
+    .col-50 {
+      -ms-flex: 50%;
+      /* IE10 */
+      flex: 50%;
+    }
+
+    .col-75 {
+      -ms-flex: 75%;
+      /* IE10 */
+      flex: 75%;
+    }
+
+    .col-25,
+    .col-50,
+    .col-75 {
+      padding: 0 16px;
+    }
+
+    .container {
+      background-color: #f2f2f2;
+      padding: 5px 20px 15px 20px;
+      border: 1px solid lightgrey;
+      border-radius: 3px;
+    }
+
+    input[type=text] {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    label {
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .icon-container {
+      margin-bottom: 20px;
+      padding: 7px 0;
+      font-size: 24px;
+    }
+
+    .btn {
+      background-color: orangered;
+      color: white;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      width: 100%;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      color: #2196F3;
+    }
+
+    hr {
+      border: 1px solid lightgrey;
+    }
+
+    span.price {
+      float: right;
+      color: grey;
+    }
+
+    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+    @media (max-width: 800px) {
+      .row {
+        flex-direction: column-reverse;
+      }
+
+      .col-25 {
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <div style="text-align:center">
-    <h1>Our Policy</h1>
-  </div>
 
-  <!-- The App Section -->
-  <div class="container">
-    <div class="row">
-      <div class="column-66">
-        <h2 class="xlarge-font"><b>Healthy food</b></h2>
-        <h6 class="large-font" style="color:MediumSeaGreen;"><b>Take care of your body. It’s the only place you have to
-            live.” – Jim Rohn</b></h6>
-        <p><span style="font-size:36px">A healthy diet is essential for good health and nutrition.
+  <h2>CART</h2>
+  <p>You order items are about to dispatch. Please complete the payment.</p>
+  <div class="row">
+    <div class="col-75">
+      <div class="container">
+        <form action="/action_page.php">
 
-            It protects you against many chronic noncommunicable diseases, such as heart disease, diabetes and cancer.
-            Eating a variety of foods and consuming less salt, sugars and saturated and industrially-produced
-            trans-fats, are essential for healthy diet.
+          <div class="row">
+            <div class="col-50">
+              <h3>Billing Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Robert Downey">
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="ironman@avengers.com">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="12 Downing Street">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="New York">
 
-            We at SVR Restaurants always provide good and healthy food to our customers.
+              <div class="row">
+                <div class="col-50">
+                  <label for="state">State</label>
+                  <input type="text" id="state" name="state" placeholder="NY">
+                </div>
+                <div class="col-50">
+                  <label for="zip">Zip</label>
+                  <input type="text" id="zip" name="zip" placeholder="10001">
+                </div>
+              </div>
+            </div>
 
-        </p>
-        <button class="button">Order Now</button>
-      </div>
-      <div class="column-33">
-        <img
-          src="https://media.istockphoto.com/id/1324831549/photo/woman-preparing-a-healthy-salad-for-lunch.jpg?s=612x612&w=0&k=20&c=sVmd8HolZVe_AwT84fqTtdutnTdjDFQTkvT-6Ao6gbY="
-          width="335" height="471">
+            <div class="col-50">
+              <h3>Payment</h3>
+              <label for="fname">Accepted Cards</label>
+              <div class="icon-container">
+                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                <i class="fa fa-cc-discover" style="color:orange;"></i>
+              </div>
+              <label for="cname">Name on Card</label>
+              <input type="text" id="cname" name="cardname" placeholder="IRONMAN">
+              <label for="ccnum">Credit card number</label>
+              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+              <label for="expmonth">Exp Month</label>
+              <input type="text" id="expmonth" name="expmonth" placeholder="September">
+              <div class="row">
+                <div class="col-50">
+                  <label for="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="2018">
+                </div>
+                <div class="col-50">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="352">
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          </label>
+          <input type="submit" value="Continue to checkout" class="btn">
+        </form>
       </div>
     </div>
-  </div>
-
-  <!-- Clarity Section -->
-  <div class="container" style="background-color:#f1f1f1">
-    <div class="row">
-      <div class="column-33">
-        <img
-          src="https://media.istockphoto.com/id/1392015624/photo/closeup-of-male-chef-in-restaurant-decorates-the-meal.jpg?s=612x612&w=0&k=20&c=Tuk0Im4qwhSf6dgzIVkmtK0X7lQGZ3MxhxEzuBA6odI="
-          alt="App" width="335" height="471">
-      </div>
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>Variety of Dishes</b></h1>
-        <h4 class="large-font" style="color:red;"><b>Who doesn't like getting options?</b></h4>
-        <p><span style="font-size:24px">Our motive is to provide a variety of dishes to the customers and give them a
-            good satisfaction of meal. Different people like different varieties, we are ready for everyones choice.</p>
-        <button class="button" style="background-color:red">Read More</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- The App Section -->
-  <div class="container">
-    <div class="row">
-      <div class="column-66">
-        <h1 class="xlarge-font"><b>Ambience</b></h1>
-        <h1 class="large-font" style="color:MediumSeaGreen;"><b>Well, everyone wants to dine like a king, and yeah they
-            get it here.</b></h1>
-        <p><span style="font-size:36px">If the service is not good that makes a bad mood. So no chance taken. We at
-            SVR's always provide a good service and noo compromise on that.</p>
-        <button class="button">Book a Table</button>
-      </div>
-      <div class="column-33">
-        <img
-          src="https://media.istockphoto.com/id/1248900256/photo/stuffed-peppers-made.jpg?s=612x612&w=0&k=20&c=Eny_xtAIyAxsvap_-C7nrHc59hwqQwWLaA7tK8Qm7AI="
-          width="335" height="471">
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+        <p>Chicken Pizza <span class="price">£5</span></p>
+        <p>Chicken Tikka Masala <span class="price">£5</span></p>
+        <p>Bacon Burger<span class="price">£8</span></p>
+        <p>Pork Pie <span class="price">£2</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>£20</b></span></p>
       </div>
     </div>
   </div>
